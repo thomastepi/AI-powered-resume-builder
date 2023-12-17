@@ -1,0 +1,40 @@
+.layout {
+    height: 100vh;
+    padding: 20px 50px;
+}
+
+.header {
+    height: 10%;
+    background-color: black;
+    color: rgba(255, 255, 255, 0.500);
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    font-size: 22px;
+}
+
+.header button {
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.header Dropdown a {
+    text-decoration: none !important;
+}
+
+.header h1 {
+    cursor: pointer;
+}
+
+.content {
+    height: 87%;
+    border: 1px solid gray;
+    margin-top: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 3px gray;
+    padding: 10px;
+}   

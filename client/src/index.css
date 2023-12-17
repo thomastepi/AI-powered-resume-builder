@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Montserrat:wght@200;400&family=Sacramento&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+button {
+  background-color: black !important;
+  box-shadow: none !important;
+  outline: none !important;
+  border: none !important;
+  color: white !important;
+  /* padding: 10px !important; */
+  font-size: 20px;
+}
+
+input, textarea {
+  outline: none !important;
+  box-shadow: none !important;
+  border: gray solid 1px !important;
+}
+
+input:focus, textarea:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.ant-spin {
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  z-index: 10 !important;
+}
+
+.ant-btn-dashed {
+  color: grey !important;
+  background-color: white !important;
+  border: 1px dashed grey !important;
+  width: 200px !important;
+}
+
+.back-btn {
+  background-color: white !important;
+  color: black !important;
+  border: 1px solid black !important;
+}
+
+
