@@ -35,6 +35,7 @@ const Profile = () => {
   const [generatedHTML, setGeneratedHTML] = useState("");
   const [isCVGenerated, setIsCVGenerated] = useState(true);
   const [alert, setAlert] = useState("");
+  const [buttonid, setButtonid] = useState("");
 
   const navigate = useNavigate();
   const componentRef = useRef();
@@ -45,64 +46,68 @@ const Profile = () => {
   const user = JSON.parse(localStorage.getItem("user"));
 
   const onFinish = async (values) => {
-    console.log(values);
+    //console.log(values);
     setLoading(true);
-    try {
-      const result = await axios.post("/api/user/update", {
-        ...values,
-        _id: user._id,
-      });
-      localStorage.setItem("user", JSON.stringify(result.data));
-      setLoading(false);
-      message.success("Profile Updated Successfully");
-    } catch (err) {
-      setLoading(false);
-      message.error("Profile Update Failed");
-      console.log(err);
+    if (buttonid === "update") {
+      try {
+        const result = await axios.post("/api/user/update", {
+          ...values,
+          _id: user._id,
+        });
+        localStorage.setItem("user", JSON.stringify(result.data));
+        setLoading(false);
+        message.success("Profile Updated Successfully");
+      } catch (err) {
+        setLoading(false);
+        message.error("Profile Update Failed");
+        console.log(err);
+      }
     }
 
-    try {
-      const user = JSON.parse(localStorage.getItem("user"));
-      const {
-        firstName,
-        lastName,
-        email,
-        mobileNumber,
-        address,
-        skills,
-        education,
-        experience,
-        projects,
-        careerObjective,
-      } = user;
-      const skillsString = skills
-        .map((skill) => `${skill.skill}: ${skill.rating}`)
-        .join(", ");
-      const educationString = education
-        .map((edu) => `${edu.qualification} at ${edu.institution}`)
-        .join(", ");
-      const experienceString = experience
-        .map((exp) => `${exp.years} years at ${exp.company}`)
-        .join(", ");
-      const projectsString = projects
-        .map((proj) => `${proj.title}: ${proj.description}`)
-        .join(", ");
-
-      setIsCVGenerated(false);
-      setAlert("LOADING...please wait while the AI Robots work their magic");
-      const result = await axios.post("/api/user/build", {
-        text: `generate a basic resume in HTML,and style with CSS, using these values: first name:${firstName}, last name:${lastName}, email:${email}, phone:${mobileNumber}, adddress:${address}, ${careerObjective}, skills:${skillsString}, education:${educationString}, experience:${experienceString}, projects:${projectsString}`,
-      });
-      setIsCVGenerated(true);
-      setAlert("");
-      //console.log(result.data.data[0].message.content);
-      setGeneratedHTML(result.data.data[0].message.content);
-      setLoading(false);
-      message.success("Resume generated Successfully");
-    } catch (err) {
-      setLoading(false);
-      message.error("Resume generation Failed");
-      console.log(err);
+    if (buttonid === "generate") {
+      try {
+        const user = JSON.parse(localStorage.getItem("user"));
+        const {
+          firstName,
+          lastName,
+          email,
+          mobileNumber,
+          address,
+          skills,
+          education,
+          experience,
+          projects,
+          careerObjective,
+        } = user;
+        const skillsString = skills
+          .map((skill) => `${skill.skill}: ${skill.rating}`)
+          .join(", ");
+        const educationString = education
+          .map((edu) => `${edu.qualification} at ${edu.institution}`)
+          .join(", ");
+        const experienceString = experience
+          .map((exp) => `${exp.years} years at ${exp.company}`)
+          .join(", ");
+        const projectsString = projects
+          .map((proj) => `${proj.title}: ${proj.description}`)
+          .join(", ");
+  
+        setIsCVGenerated(false);
+        setAlert("LOADING...please wait while the AI Robots work their magic");
+        const result = await axios.post("/api/user/build", {
+          text: `generate a basic resume in HTML,and style with CSS, using these values: first name:${firstName}, last name:${lastName}, email:${email}, phone:${mobileNumber}, adddress:${address}, objectives:${careerObjective}, skills:${skillsString}, education:${educationString}, experience:${experienceString}, projects:${projectsString}`,
+        });
+        setIsCVGenerated(true);
+        setAlert("");
+        //console.log(result.data.data[0].message.content);
+        setGeneratedHTML(result.data.data[0].message.content);
+        setLoading(false);
+        message.success("Resume generated Successfully");
+      } catch (err) {
+        setLoading(false);
+        message.error("Resume generation Failed");
+        console.log(err);
+      }
     }
   };
 
@@ -146,8 +151,23 @@ const Profile = () => {
           <div className="update-profile">
             <Form layout="vertical" onFinish={onFinish} initialValues={user}>
               <Tabs defaultActiveKey="1" items={items} onChange={onChange} />
-              <button style={{ borderRadius: "5px" }} type="submit">
-                Update/Generate Resume
+              <button
+                onClick={() => {
+                  setButtonid("update");
+                }}
+                style={{ borderRadius: "5px" }}
+                type="submit"
+              >
+                Update Profile
+              </button>
+              <button
+                onClick={() => {
+                  setButtonid("generate");
+                }}
+                style={{ borderRadius: "5px", marginLeft: "20px" }}
+                type="submit"
+              >
+                Generate Resume using AI
               </button>
             </Form>
           </div>
@@ -155,20 +175,6 @@ const Profile = () => {
       ) : (
         ""
       )}
-
-      {/* <h4>
-        <strong>Update Profile</strong>
-      </h4>
-      <hr />
-      <div className="update-profile">
-        <Form layout="vertical" onFinish={onFinish} initialValues={user}>
-          <Tabs defaultActiveKey="1" items={items} onChange={onChange} />
-          <button style={{ borderRadius: "5px" }} type="submit">
-            Update/Generate Resume
-          </button>
-        </Form>
-      </div> */}
-
       <div className="divider mt-3"></div>
     </DefaultLayout>
   );

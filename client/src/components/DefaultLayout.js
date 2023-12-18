@@ -42,7 +42,7 @@ function DefaultLayout(props) {
   return (
     <div className="layout">
       <div className="header">
-        <h1 onClick={()=>{navigate("/home")}}>My CV</h1>
+        <h1 onClick={()=>{navigate("/home")}}>AI Resume Generator</h1>
         <Dropdown
           menu={{
             items,
