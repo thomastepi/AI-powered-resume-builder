@@ -1,5 +1,6 @@
 const express = require("express");
 const UserModel = require("../models/userModel");
+import('node-fetch');
 const runCompletion = require("../openai");
 
 
@@ -49,7 +50,8 @@ router.post("/build", async (req, res) => {
   const { text } = req.body;
   try {
     const response = await runCompletion(text);
-    res.json({ data: response.data });
+    //console.log(response);
+    res.json({ data: response.choices });
   } catch (error) {
     if (error.response) {
       console.error(error.response.data, error.response.status);
@@ -60,6 +62,5 @@ router.post("/build", async (req, res) => {
     }
   }
 });
-
 
 module.exports = router;
