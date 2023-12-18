@@ -25,7 +25,7 @@ const SkillsEducaton = () => {
                         },
                       ]}
                     >
-                      <Input placeholder="Qualiication" />
+                      <Input placeholder="Qualification" />
                     </Form.Item>
                   </div>
 

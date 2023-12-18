@@ -8,7 +8,6 @@ const router = express.Router();
 
 router.post("/login", async (req, res) => {
   try {
-    console.log(req.body);
     const result = await UserModel.findOne({
       username: req.body.username,
       password: req.body.password,
