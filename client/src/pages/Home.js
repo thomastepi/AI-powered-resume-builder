@@ -1,6 +1,7 @@
 import React from "react";
 import DefaultLayout from "../components/DefaultLayout";
 import template1_img from "../resources/templates/template1.png";
+import template2_img from "../resources/templates/template2.png";
 import { useNavigate } from "react-router-dom";
 
 function Home() {
@@ -9,6 +10,10 @@ function Home() {
     {
       title: "Simple Resume",
       image: template1_img,
+    },
+    {
+      title: "Highlight Sections",
+      image: template2_img,
     },
   ];
   return (

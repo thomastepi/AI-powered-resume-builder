@@ -3,18 +3,44 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background-image: linear-gradient(to top, #48c6ef 0%, #6f86d6 100%);;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
 }
 
 .auth-parent form {
     width: 400px;
-    padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);   
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    padding: 60px 30px;
+    opacity: 0.85;
+       
 }
 
 .auth-parent h1 {
     font-size: 22px;
     font-weight: bold;
+}
+
+.brand {
+    position: absolute;
+    top: 20%;
+    left: 0;
+    padding: 20px;
+    font-size: 150px !important;
+    transform: translate(-50%, -50%);
+    transform: rotate(-10deg) !important;
+    width: 100%;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.585);
+}
+
+@media only screen and (max-width:1000px) {
+    .brand{
+        display: none;  
+    }
 }

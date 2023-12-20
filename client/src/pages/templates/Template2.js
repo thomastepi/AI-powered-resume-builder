@@ -5,7 +5,7 @@ const Template2 = () => {
   const user = JSON.parse(localStorage.getItem("user"));
   return (
     <div className="template1-parent">
-      <div className="top d-flex justify-content-between">
+      <div className="top d-flex flex-column">
         <h1>
           {user.firstName.toUpperCase()} {user.lastName.toUpperCase()}
         </h1>
@@ -17,9 +17,10 @@ const Template2 = () => {
       </div>
 
       <div className="divider mt-3"></div>
+      <div className="divider mt-1"></div>
 
       <div className="objective mt-3">
-        <h3>Objective</h3>
+        <h3 style={{backgroundColor: "grey", padding: "10px"}}>Objective</h3>
         <hr />
         <p>{user.careerObjective}</p>
       </div>
@@ -27,7 +28,7 @@ const Template2 = () => {
       <div className="divider mt-3"></div>
 
       <div className="education mt-3">
-        <h3>Education</h3>
+        <h3 style={{backgroundColor: "grey", padding: "10px"}}>Education</h3>
         <hr />
         {user.education.map((education) => {
           return (
@@ -48,7 +49,7 @@ const Template2 = () => {
       <div className="divider mt-3"></div>
 
       <div className="experience mt-3">
-        <h3>Experience</h3>
+        <h3 style={{backgroundColor: "grey", padding: "10px"}}>Experience</h3>
         <hr />
         {user.experience.map((exp) => {
           return (
@@ -68,7 +69,7 @@ const Template2 = () => {
       <div className="divider mt-3"></div>
 
       <div className="projects mt-3">
-        <h3>Projects</h3>
+        <h3 style={{backgroundColor: "grey", padding: "10px"}}>Projects</h3>
         <hr />
         {user.projects.map((project) => {
           return (
@@ -87,7 +88,7 @@ const Template2 = () => {
       <div className="divider mt-3"></div>
 
       <div className="skills mt-3">
-        <h3>Skills</h3>
+        <h3 style={{backgroundColor: "grey", padding: "10px"}}>Skills</h3>
         <hr />
         {user.skills.map((skill) => {
           return (

@@ -30,6 +30,7 @@ function Register() {
   return (
     <div className="auth-parent">
     {loading && (<Spin size="large"/>)}
+      <h1 className="brand">AI Resume Generator</h1>
       <Form layout="vertical" onFinish={onFinish}>
         <h1>Register</h1>
         <hr />
