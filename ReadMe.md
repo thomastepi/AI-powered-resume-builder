@@ -22,6 +22,10 @@ This application is an AI-powered resume builder that leverages the OpenAI API's
 3. **API Configuration**
     - Set up your OpenAI API credentials in the backend environment variables.
 
+4. **Live Demo**
+    - Try the [Live Demo](https://resume-craft.onrender.com) to experience the application directly without setting it up                locally.
+
+
 4. **Usage Flow**
     - Register or log in to access profile management.
     - Update personal details, skills, education, experience, and projects.
