@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import { useReactToPrint } from "react-to-print";
 import Template1 from "./Template1";
 import Template2 from "./Template2";
+import Template3 from "./Template3";
 import DefaultLayout from "../../components/DefaultLayout";
 import { useParams, useNavigate } from "react-router-dom";
 
@@ -20,6 +21,10 @@ const Templates = () => {
 
       case "2": {
         return <Template2 />;
+      }
+
+      case "3": {
+        return <Template3 />;
       }
     }
   };

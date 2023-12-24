@@ -12,7 +12,11 @@ function Home() {
       image: template1_img,
     },
     {
-      title: "Highlight Sections",
+      title: "Highlighted Sections",
+      image: template2_img,
+    },
+    {
+      title: "Generate using AI",
       image: template2_img,
     },
   ];
