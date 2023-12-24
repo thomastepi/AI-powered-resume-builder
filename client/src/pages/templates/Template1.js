@@ -37,7 +37,7 @@ const Template1 = () => {
               </h6>
               <p>
                 <strong>{education.qualification} </strong> |
-                <strong> {education.percentage}% </strong> |
+                <strong> {education.gpa} </strong> |
                 <strong> {education.institution}</strong>
               </p>
             </div>

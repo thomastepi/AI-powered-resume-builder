@@ -13,6 +13,7 @@ function Register() {
       await axios.post("/api/user/register", values);
       setLoading(false);
       message.success("Registration Successful");
+      navigate("/login");
     } catch (err) {
       setLoading(false);
       message.error("Registration Failed");

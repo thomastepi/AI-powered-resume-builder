@@ -28,7 +28,7 @@ const Template3 = () => {
         .map((skill) => `${skill.skill}: ${skill.rating}`)
         .join(", ");
       const educationString = education
-        .map((edu) => `${edu.qualification} at ${edu.institution}`)
+        .map((edu) => `${edu.qualification} at ${edu.institution}, ${edu.gpa}`)
         .join(", ");
       const experienceString = experience
         .map((exp) => `${exp.years} years at ${exp.company}`)

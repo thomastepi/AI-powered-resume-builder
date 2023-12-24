@@ -32,15 +32,15 @@ const SkillsEducaton = () => {
                   <div className="col-md-2">
                     <Form.Item
                       {...restField}
-                      name={[name, "percentage"]}
+                      name={[name, "gpa"]}
                       rules={[
                         {
                           required: true,
-                          message: "Missing Percentage",
+                          message: "Missing gpa",
                         },
                       ]}
                     >
-                      <Input placeholder="Percentage" />
+                      <Input placeholder="GPA" />
                     </Form.Item>
                   </div>
 
