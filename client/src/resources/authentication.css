@@ -4,9 +4,24 @@
     align-items: center;
     height: 100vh;
     background-image: linear-gradient(to top, #48c6ef 0%, #6f86d6 100%);;
-    position: relative;
     width: 100%;
     overflow: hidden;
+}
+
+.auth-parent .auth-child {
+    width: 1000px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.auth-child p {
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.585);
+    margin: 0;
+    padding: 0;
+    margin-right: 20px;
 }
 
 .auth-parent form {
@@ -27,20 +42,15 @@
 }
 
 .brand {
-    position: absolute;
-    top: 20%;
-    left: 0;
-    padding: 20px;
-    font-size: 150px !important;
-    transform: translate(-50%, -50%);
-    transform: rotate(-10deg) !important;
+    font-size: 40px !important;
     width: 100%;
-    text-align: center;
     color: rgba(0, 0, 0, 0.585);
+    margin-right: 20px;
+
 }
 
 @media only screen and (max-width:1000px) {
-    .brand{
+    .brand, .auth-child p{
         display: none;  
     }
 }

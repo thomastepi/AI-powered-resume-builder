@@ -1,4 +1,4 @@
-import  React, { useEffect } from "react";
+import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Button, Form, Input, message, Spin } from "antd";
@@ -30,9 +30,17 @@ function Register() {
 
   return (
     <div className="auth-parent">
-    {loading && (<Spin size="large"/>)}
-      <h1 className="brand">AI Resume Generator</h1>
-      <Form layout="vertical" onFinish={onFinish}>
+      {loading && <Spin size="large" />}
+      <div className="auth-child">
+        <div style={{textAlign: "left", paddingRight: "40px"}}>
+          <h1 className="brand">AI-Powered Resume Builder</h1>
+          <p>
+            A Resume Builder powered by AI which helps you create a professional
+            resume in minutes.
+          </p>
+        </div>
+        <div>
+        <Form layout="vertical" onFinish={onFinish}>
         <h1>Register</h1>
         <hr />
         <Form.Item name="username" label="Username">
@@ -53,6 +61,8 @@ function Register() {
           </Button>
         </div>
       </Form>
+        </div>
+      </div>
     </div>
   );
 }

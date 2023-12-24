@@ -32,25 +32,35 @@ function Login() {
   return (
     <div className="auth-parent">
       {loading && <Spin size="large" />}
-      <h1 className="brand">AI Resume Generator</h1>
-      <Form layout="vertical" onFinish={onFinish}>
-        <h1>Login</h1>
-        <hr />
-        <Form.Item name="username" label="Username">
-          <Input />
-        </Form.Item>
-        <Form.Item name="password" label="Password">
-          <Input type="password" />
-        </Form.Item>
-        <div className="d-flex align-items-center justify-content-between">
-          <span>
-            Don't have an account? Register <Link to="/register">Here</Link>{" "}
-          </span>
-          <Button type="primary" htmlType="submit">
-            Login
-          </Button>
+      <div className="auth-child">
+        <div style={{textAlign: "left", paddingRight: "40px"}}>
+          <h1 className="brand">AI-Powered Resume Builder</h1>
+          <p>
+            A Resume Builder powered by AI which helps you create a professional
+            resume in minutes.
+          </p>
         </div>
-      </Form>
+        <div>
+          <Form layout="vertical" onFinish={onFinish}>
+            <h1>Login</h1>
+            <hr />
+            <Form.Item name="username" label="Username">
+              <Input />
+            </Form.Item>
+            <Form.Item name="password" label="Password">
+              <Input type="password" />
+            </Form.Item>
+            <div className="d-flex align-items-center justify-content-between">
+              <span>
+                Don't have an account? Register <Link to="/register">Here</Link>{" "}
+              </span>
+              <Button type="primary" htmlType="submit">
+                Login
+              </Button>
+            </div>
+          </Form>
+        </div>
+      </div>
     </div>
   );
 }
