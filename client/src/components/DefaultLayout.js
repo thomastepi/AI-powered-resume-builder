@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Dropdown, Button } from "antd";
+import { Dropdown, Button, message } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 
 import "./../resources/defaultLayout.css";
@@ -33,6 +33,7 @@ function DefaultLayout(props) {
           onClick={() => {
             localStorage.removeItem("user");
             navigate("/login");
+            message.success("Successfully logged out");
           }}
         >
           Logout
